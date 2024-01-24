@@ -27,13 +27,16 @@ export class CoffeesController {
   }
 
   @Post()
-  create(@Body() createCoffeeDto: CreateCoffeeDto) {
-    return createCoffeeDto;
+  async create(@Body() createCoffeeDto: CreateCoffeeDto) {
+    return await this.coffeeService.create(createCoffeeDto);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCoffeeDto: UpdateCoffeeDto) {
-    return updateCoffeeDto;
+  async update(
+    @Param('id') id: string,
+    @Body() updateCoffeeDto: UpdateCoffeeDto,
+  ) {
+    return await this.coffeeService.update(id, updateCoffeeDto);
   }
 
   @Delete(':id')
