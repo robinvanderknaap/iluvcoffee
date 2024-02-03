@@ -4,6 +4,9 @@ import { CoffeesModule } from 'src/coffees/coffees.module';
 
 @Module({
   imports: [CoffeesModule],
-  providers: [CoffeeRatingService],
+  providers: [
+    CoffeeRatingService,
+    { provide: 'COFFEE_BRANDS', useValue: ['buddy brew', 'nescafe'] },
+  ],
 })
 export class CoffeeRatingModule {}
